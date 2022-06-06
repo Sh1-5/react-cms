@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import App from './App'
 
-import 'normalize.css'
-
+import '@/assets/css/reset.css'
 import 'antd/dist/antd.min.css'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 
 createRoot(document.getElementById('root')).render(
-  <ConfigProvider locale={zhCN}>
-    <App />
-  </ConfigProvider>
+  <StrictMode>
+    <ConfigProvider locale={zhCN}>
+      <App />
+    </ConfigProvider>
+  </StrictMode>
 )

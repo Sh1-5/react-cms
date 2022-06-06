@@ -7,6 +7,12 @@ const request = axios.create({
 
 request.interceptors.request.use(
   (config) => {
+    const token = JSON.parse(window.localStorage.getItem('token'))
+    if (token) {
+      config.headers = {
+        Authorization: `Bearer ${token}`
+      }
+    }
     return config
   },
   (err) => {
@@ -16,7 +22,7 @@ request.interceptors.request.use(
 
 request.interceptors.response.use(
   (res) => {
-    return res.data
+    return res.data.data
   },
   (err) => {
     return Promise.reject(err)

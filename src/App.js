@@ -1,12 +1,18 @@
 import React, { memo } from 'react'
+import { HashRouter as Router, useRoutes } from 'react-router-dom'
 
-import { Button } from 'antd'
+import routes from '@/router'
+
+function RouteElement() {
+  const element = useRoutes(routes)
+  return element
+}
 
 const App = memo(() => {
   return (
-    <div>
-      <Button type="primary">Primary Button</Button>
-    </div>
+    <Router>
+      <RouteElement />
+    </Router>
   )
 })
 
